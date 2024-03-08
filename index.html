@@ -20,7 +20,15 @@
     </script>
   </head>
   <body>
-    <input type="text" id="userInput" placeholder="여기에 입력하세요" />
+    <textarea
+      cols="60"
+      rows="10"
+      id="userInput"
+      placeholder="여기에 입력하세요"
+    >
+    SELECT 상품ID, 상품명 FROM 상품
+    WHERE 가격 >=40000 AND 공급업체ID = 101;</textarea
+    >
     <button onclick="sendToGA()">전송</button>
     <div id="output"></div>
 
