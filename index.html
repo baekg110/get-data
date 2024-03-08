@@ -20,17 +20,20 @@
     </script>
   </head>
   <body>
+    <input type="text" id="text" />
     <button id="btn-run">Run Btn</button>
     <button id="btn-test">Test Btn</button>
     <script>
       const btnRun = document.getElementById("btn-run");
       const btnTest = document.getElementById("btn-test");
+      const text = document.getElementById("text").value;
 
       btnRun.addEventListener("click", () => {
         console.log("Run Btn Clicked");
         gtag("event", "click", {
           event_category: "button",
           event_label: "run button",
+          data: text,
         });
       });
       btnTest.addEventListener("click", () => {
