@@ -19,5 +19,27 @@
       gtag("config", "G-298JSP7XXY");
     </script>
   </head>
-  <body></body>
+  <body>
+    <button id="btn-run">Run Btn</button>
+    <button id="btn-test">Test Btn</button>
+    <script>
+      const btnRun = document.getElementById("btn-run");
+      const btnTest = document.getElementById("btn-test");
+
+      btnRun.addEventListener("click", () => {
+        console.log("Run Btn Clicked");
+        gtag("event", "click", {
+          event_category: "button",
+          event_label: "run button",
+        });
+      });
+      btnTest.addEventListener("click", () => {
+        console.log("Test Btn Clicked");
+        gtag("event", "click", {
+          event_category: "button",
+          event_label: "test button",
+        });
+      });
+    </script>
+  </body>
 </html>
