@@ -20,6 +20,9 @@
     </script>
   </head>
   <body>
+    <input
+      onblur="ga('send', 'pageview', 'my-page-name?myParam=' + this.value);"
+    />
     <input type="text" id="text" />
     <button id="btn-run">Run Btn</button>
     <button id="btn-test">Test Btn</button>
