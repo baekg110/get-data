@@ -20,32 +20,24 @@
     </script>
   </head>
   <body>
-    <input
-      onblur="ga('send', 'pageview', 'my-page-name?myParam=' + this.value);"
-    />
-    <input type="text" id="text" />
-    <button id="btn-run">Run Btn</button>
-    <button id="btn-test">Test Btn</button>
-    <script>
-      const btnRun = document.getElementById("btn-run");
-      const btnTest = document.getElementById("btn-test");
-      const text = document.getElementById("text").value;
+    <input type="text" id="userInput" placeholder="여기에 입력하세요" />
+    <button onclick="sendToGA()">전송</button>
+    <div id="output"></div>
 
-      btnRun.addEventListener("click", () => {
-        console.log("Run Btn Clicked");
-        gtag("event", "click", {
-          event_category: "button",
-          event_label: "run button",
-          value: text,
+    <script>
+      // GA 초기화 코드 여기에 삽입
+      // 예: gtag('config', 'GA_MEASUREMENT_ID');
+
+      function sendToGA() {
+        var inputValue = document.getElementById("userInput").value;
+        document.getElementById("output").innerText = inputValue; // 화면에 입력값 출력
+
+        // Google Analytics에 이벤트 전송
+        gtag("event", "input_submitted", {
+          event_category: "User Inputs",
+          event_label: inputValue,
         });
-      });
-      btnTest.addEventListener("click", () => {
-        console.log("Test Btn Clicked");
-        gtag("event", "click", {
-          event_category: "button",
-          event_label: "test button",
-        });
-      });
+      }
     </script>
   </body>
 </html>
